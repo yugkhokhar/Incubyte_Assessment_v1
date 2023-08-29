@@ -28,6 +28,21 @@ public:
             gslv3_current_position[2] -= 1;
     }
 
+    void GSLV3_MOVE_BACKWARD(){
+        if (gslv3_current_direction == "N")
+            gslv3_current_position[1] -= 1;
+        else if (gslv3_current_direction == "S")
+            gslv3_current_position[1] += 1;
+        else if (gslv3_current_direction == "E")
+            gslv3_current_position[0] -= 1;
+        else if (gslv3_current_direction == "W")
+            gslv3_current_position[0] += 1;
+        else if (gslv3_current_direction == "U")
+            gslv3_current_position[2] -= 1;
+        else if (gslv3_current_direction == "D")
+            gslv3_current_position[2] += 1;
+    }
+
 
 
     void commandFlow(vector<string> Commands) {
@@ -38,7 +53,7 @@ public:
             }
             else if (Command == "b"){
                 // function to be used for the backward command execution
-                cout << "The GSLV3 is moving backward" << endl;
+                GSLV3_MOVE_BACKWARD();
             }
             else if (Command == "l"){
                 // function to be used for the left command execution
