@@ -34,3 +34,23 @@ TEST_CASE("Test Case 3") {
     REQUIRE(chandrayan3.getCurrentDirection() == "U");
 }
 
+// TEST CASE FOR GSLV3_MOVE_BACKWARD
+TEST_CASE("Test Case 4") {
+    vector<int> pos = {0, 1, 0};
+    string dir = "U";
+    Chandrayan3 chandrayan3(pos, dir);
+    chandrayan3.GSLV3_MOVE_BACKWARD();
+    REQUIRE(chandrayan3.getCurrentPositions() == vector<int>{0, 1, -1});
+    REQUIRE(chandrayan3.getCurrentDirection() == "U");
+}
+
+// TEST CASE FOR GSLV3_MOVE_LEFT
+TEST_CASE("Test Case 5") {
+    vector<int> pos = {0, 1, -1};
+    string dir = "U";
+    Chandrayan3 chandrayan3(pos, dir);
+    chandrayan3.GSLV3_MOVE_LEFT();
+    REQUIRE(chandrayan3.getCurrentPositions() == vector<int>{0, 1, -1});
+    REQUIRE(chandrayan3.getCurrentDirection() == "N");
+}
+  
