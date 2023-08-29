@@ -150,10 +150,10 @@ public:
 
 };
 
-int main() {
+/* int main() {
     vector<int> initial_position = {0, 0, 0};
     vector<string> commands = {"f", "r", "u", "b", "l"};
     Chandrayan3 GSLV3(initial_position,"N");
     GSLV3.commandFlow(commands);
     return 0;
-}
+} */
