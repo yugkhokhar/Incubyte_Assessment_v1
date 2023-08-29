@@ -43,6 +43,59 @@ public:
             gslv3_current_position[2] += 1;
     }
 
+    void GSLV3_MOVE_LEFT(){
+        if (gslv3_current_direction == "N")
+            gslv3_current_direction = "W";
+        else if (gslv3_current_direction == "S")
+            gslv3_current_direction = "E";
+        else if (gslv3_current_direction == "E")
+            gslv3_current_direction = "N";
+        else if (gslv3_current_direction == "W")
+            gslv3_current_direction = "S";
+        else if(gslv3_current_direction=="U")
+            gslv3_current_direction="N";
+        else if(gslv3_current_direction=="D")
+            gslv3_current_direction="N";
+    }
+
+    void GSLV3_MOVE_RIGHT(){
+        if (gslv3_current_direction == "N")
+            gslv3_current_direction = "E";
+        else if (gslv3_current_direction == "S")
+            gslv3_current_direction = "W";
+        else if (gslv3_current_direction == "E")
+            gslv3_current_direction = "S";
+        else if (gslv3_current_direction == "W")
+            gslv3_current_direction = "N";
+        else if(gslv3_current_direction=="U")
+            gslv3_current_direction="N";
+        else if(gslv3_current_direction=="D")
+            gslv3_current_direction="S";
+    }
+
+    void GSLV3_MOVE_UP(){
+        if (gslv3_current_direction == "N")
+            gslv3_current_direction = "U";
+        else if (gslv3_current_direction == "S")
+            gslv3_current_direction = "D";
+        else if (gslv3_current_direction == "E")
+            gslv3_current_direction = "U";
+        else if (gslv3_current_direction == "W")
+            gslv3_current_direction = "U";
+    }
+
+    void GSLV3_MOVE_DOWN(){
+        if (gslv3_current_direction == "N")
+            gslv3_current_direction = "D";
+        else if (gslv3_current_direction == "S")
+            gslv3_current_direction = "U";
+        else if (gslv3_current_direction == "E")
+            gslv3_current_direction = "D";
+        else if (gslv3_current_direction == "W")
+            gslv3_current_direction = "D";
+    }
+
+
 
 
     void commandFlow(vector<string> Commands) {
@@ -57,20 +110,20 @@ public:
             }
             else if (Command == "l"){
                 // function to be used for the left command execution
-                cout << "The GSLV3 is moving left" << endl;
+                GSLV3_MOVE_LEFT();
 
             }
             else if (Command == "r"){
                 // function to be used for the right command execution
-                cout << "The GSLV3 is moving right" << endl;
+                GSLV3_MOVE_RIGHT();
             }
             else if (Command == "u"){
                 // function to be used for the upper command execution
-                cout << "The GSLV3 is moving up" << endl;
+                GSLV3_MOVE_UP();
             }
             else if (Command == "d"){
                 // function to be used for the down command execution
-                cout << "The GSLV3 is moving down" << endl;
+                GSLV3_MOVE_DOWN();
             }
 
             //print the current position of the GSLV3 along with direction after each command execution
