@@ -208,7 +208,7 @@ public:
 
 int main() {
     vector<int> initial_position = {0, 0, 0};
-    vector<string> commands = {"f", "r", "u","b", "l"};
+    vector<string> commands = {"r", "f", "b","l", "u","b"};
     Chandrayan3 GSLV3(initial_position,"N");
     GSLV3.commandFlow(commands);
     return 0;
