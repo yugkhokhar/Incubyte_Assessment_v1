@@ -6,10 +6,11 @@ using namespace std;
 class Chandrayan3 {
 private:
     vector<int> gslv3_current_position;
+    string direction;
     string gslv3_current_direction;
 
 public:
-    Chandrayan3(vector<int>pos,string dir) : gslv3_current_position(pos), gslv3_current_direction(dir) {}
+    Chandrayan3(vector<int>pos,string dir) : gslv3_current_position(pos), gslv3_current_direction(dir),direction(dir) {}
 
 
     //THIS FUNCTION CHANGES THE COORDINATES OF THE GSLV WHEN IT MOVES FORWARD
@@ -53,9 +54,20 @@ public:
         else if (gslv3_current_direction == "W")
             gslv3_current_direction = "S";
         else if(gslv3_current_direction=="U")
-            gslv3_current_direction="N";
-        else if(gslv3_current_direction=="D")
-            gslv3_current_direction="N";
+        {
+        if(direction=="N") gslv3_current_direction="W";
+        else if(direction=="E") gslv3_current_direction="N";
+        else if(direction=="S") gslv3_current_direction="E";
+        else if(direction=="W") gslv3_current_direction="S";
+        else gslv3_current_direction="N";
+        }
+        else if(gslv3_current_direction=="D"){
+            if(direction=="N") gslv3_current_direction="W";
+            else if(direction=="E") gslv3_current_direction="N";
+            else if(direction=="S") gslv3_current_direction="E";
+            else if(direction=="W") gslv3_current_direction="S";
+            else gslv3_current_direction="N";
+        }
     }
 
     void GSLV3_MOVE_RIGHT(){
@@ -68,31 +80,75 @@ public:
         else if (gslv3_current_direction == "W")
             gslv3_current_direction = "N";
         else if(gslv3_current_direction=="U")
-            gslv3_current_direction="N";
+        {
+            if(direction=="N") gslv3_current_direction="E";
+            else if(direction=="E") gslv3_current_direction="S";
+            else if(direction=="S") gslv3_current_direction="W";
+            else if(direction=="W") gslv3_current_direction="N";
+            else gslv3_current_direction="N";
+        }
         else if(gslv3_current_direction=="D")
-            gslv3_current_direction="S";
+        {
+            if(direction=="N") gslv3_current_direction="E";
+            else if(direction=="E") gslv3_current_direction="S";
+            else if(direction=="S") gslv3_current_direction="W";
+            else if(direction=="W") gslv3_current_direction="N";
+            else gslv3_current_direction="N";
+        }
+            
     }
 
     void GSLV3_MOVE_UP(){
         if (gslv3_current_direction == "N")
+         {
+
+          direction=gslv3_current_direction;
             gslv3_current_direction = "U";
+         }  
         else if (gslv3_current_direction == "S")
-            gslv3_current_direction = "D";
+           {
+
+            direction=gslv3_current_direction;
+            gslv3_current_direction = "U";
+           }
         else if (gslv3_current_direction == "E")
+           {
+
+             direction=gslv3_current_direction;
             gslv3_current_direction = "U";
+           }
         else if (gslv3_current_direction == "W")
+           {
+
+            direction=gslv3_current_direction;
             gslv3_current_direction = "U";
+           }
     }
 
     void GSLV3_MOVE_DOWN(){
-        if (gslv3_current_direction == "N")
+        if (gslv3_current_direction == "N"){
+
+         direction=gslv3_current_direction;
             gslv3_current_direction = "D";
+        }
         else if (gslv3_current_direction == "S")
-            gslv3_current_direction = "U";
+        {
+
+        direction=gslv3_current_direction;
+            gslv3_current_direction = "D";
+        } 
         else if (gslv3_current_direction == "E")
+        {
+
+         direction=gslv3_current_direction;
             gslv3_current_direction = "D";
+        }
         else if (gslv3_current_direction == "W")
+         {
+
+         direction=gslv3_current_direction;
             gslv3_current_direction = "D";
+         }
     }
 
 
@@ -150,10 +206,10 @@ public:
 
 };
 
-/* int main() {
+int main() {
     vector<int> initial_position = {0, 0, 0};
-    vector<string> commands = {"f", "r", "u", "b", "l"};
+    vector<string> commands = {"f", "r", "u","b", "l"};
     Chandrayan3 GSLV3(initial_position,"N");
     GSLV3.commandFlow(commands);
     return 0;
-} */
+} 
