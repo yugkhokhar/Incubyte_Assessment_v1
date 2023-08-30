@@ -205,13 +205,4 @@ public:
     }
 
 };
-/* 
- int main() {
-    vector<int> initial_position = {0, 0, 0};
-    vector<string> commands = { "r", "r", "u","b", "l","f","b" 
-};
-    Chandrayan3 GSLV3(initial_position,"W");
-    GSLV3.commandFlow(commands);
-    return 0;
-}   */
  
