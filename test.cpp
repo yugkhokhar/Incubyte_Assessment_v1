@@ -29,7 +29,6 @@ TEST_CASE("Test Case 1") {
     REQUIRE(chandrayan3.getCurrentDirection() == "N");
 }
 
-
 //Base Example TEST CASE For Another Direction 
 /* Command {f,r,u,b,l} dir=S */
 TEST_CASE("Test Case 2") {
