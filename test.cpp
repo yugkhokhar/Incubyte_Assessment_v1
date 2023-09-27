@@ -227,8 +227,49 @@ TEST_CASE("Test Case 8"){
     chandrayan3.GSLV3_MOVE_BACKWARD();
     REQUIRE(chandrayan3.getCurrentPositions() == vector<int>{0, 0, -1});
     REQUIRE(chandrayan3.getCurrentDirection() == "N");
+}
 
+TEST_CASE("Test Case 9"){
+    vector<int>pos={99,0,0};
+    string dir="E";
+    Chandrayan3 chandrayan3(pos,dir);
+    vector<string>Commands={"f","b","f","r"};
+    chandrayan3.commandFlow(Commands);
 
+    REQUIRE(chandrayan3.getCurrentPositions() == vector<int>{100, 0,0});
+    REQUIRE(chandrayan3.getCurrentDirection() == "S");
 }
 
 
+TEST_CASE("Test Case 10"){
+    vector<int>pos={99,98,0};
+    string dir="N";
+    Chandrayan3 chandrayan3(pos,dir);
+    vector<string>Commands={"f","f","f","u"};
+    chandrayan3.commandFlow(Commands);
+
+    REQUIRE(chandrayan3.getCurrentPositions() == vector<int>{99, 100,0});
+    REQUIRE(chandrayan3.getCurrentDirection() == "U");
+}
+
+TEST_CASE("Test Case 11"){
+    vector<int>pos={99,98,99};
+    string dir="W";
+    Chandrayan3 chandrayan3(pos,dir);
+    vector<string>Commands={"f","f","f","u","r"};
+    chandrayan3.commandFlow(Commands);
+
+    REQUIRE(chandrayan3.getCurrentPositions() == vector<int>{96, 98,99});
+    REQUIRE(chandrayan3.getCurrentDirection() == "N");
+}
+
+TEST_CASE("Test Case 12"){
+    vector<int>pos={-99,-98,99};
+    string dir="E";
+    Chandrayan3 chandrayan3(pos,dir);
+    vector<string>Commands={"b","b","r","u"};
+    chandrayan3.commandFlow(Commands);
+
+    REQUIRE(chandrayan3.getCurrentPositions() == vector<int>{-100,-98,99});
+    REQUIRE(chandrayan3.getCurrentDirection() == "U");
+}

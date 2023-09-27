@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 
-
 using namespace std;
 
 class Chandrayan3 {
@@ -8,7 +7,7 @@ private:
     vector<int> gslv3_current_position;
     string direction;
     string gslv3_current_direction;
-
+    const int limit=100;
 public:
     Chandrayan3(vector<int>pos,string dir) : gslv3_current_position(pos), gslv3_current_direction(dir),direction(dir) {}
 
@@ -99,27 +98,26 @@ public:
     }
 
     void GSLV3_MOVE_UP(){
+       
         if (gslv3_current_direction == "N")
          {
-
           direction=gslv3_current_direction;
             gslv3_current_direction = "U";
          }  
         else if (gslv3_current_direction == "S")
            {
-
+           
             direction=gslv3_current_direction;
             gslv3_current_direction = "U";
            }
         else if (gslv3_current_direction == "E")
            {
-
+            
              direction=gslv3_current_direction;
-            gslv3_current_direction = "U";
+             gslv3_current_direction = "U";
            }
         else if (gslv3_current_direction == "W")
            {
-
             direction=gslv3_current_direction;
             gslv3_current_direction = "U";
            }
@@ -139,14 +137,13 @@ public:
         } 
         else if (gslv3_current_direction == "E")
         {
-
-         direction=gslv3_current_direction;
+            direction=gslv3_current_direction;
             gslv3_current_direction = "D";
         }
         else if (gslv3_current_direction == "W")
          {
 
-         direction=gslv3_current_direction;
+            direction=gslv3_current_direction;
             gslv3_current_direction = "D";
          }
     }
@@ -156,15 +153,18 @@ public:
 
     void commandFlow(vector<string> Commands) {
         for (auto Command : Commands) {
-            if (Command == "f"){
-                // function to be used for the forward command execution
-                GSLV3_MOVE_FORWARD();
+            if(abs(gslv3_current_position[0])<limit && abs(gslv3_current_position[1])<limit && abs(gslv3_current_position[2])<limit){
+                if (Command == "f"){
+                    // function to be used for the forward command execution
+                    GSLV3_MOVE_FORWARD();
+                }
+                else if (Command == "b"){
+                    // function to be used for the backward command execution
+                    GSLV3_MOVE_BACKWARD();
+                }
             }
-            else if (Command == "b"){
-                // function to be used for the backward command execution
-                GSLV3_MOVE_BACKWARD();
-            }
-            else if (Command == "l"){
+           
+            if (Command == "l"){
                 // function to be used for the left command execution
                 GSLV3_MOVE_LEFT();
 
@@ -181,8 +181,7 @@ public:
                 // function to be used for the down command execution
                 GSLV3_MOVE_DOWN();
             }
-
-            //print the current position of the GSLV3 along with direction after each command execution
+        }
             cout<<"The current position of the GSLV3 is: ";
             for(int i=0;i<gslv3_current_position.size();i++){
                 cout<<gslv3_current_position[i]<<" ";
@@ -190,7 +189,6 @@ public:
             cout<<endl;
             cout<<"The current direction of the GSLV3 is: "<<gslv3_current_direction<<endl;
 
-        }
     }
 
 
